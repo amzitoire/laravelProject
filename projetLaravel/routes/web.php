@@ -32,14 +32,25 @@ Route::post(
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
 
 Auth::routes();
 #admin
-Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
-
+Route::get('/admin', [App\Http\Controllers\adminController::class, 'index'])->name('admin');
 Route::resource('myUsers', App\Http\Controllers\MyUserController::class);
 Route::resource('epreuves', App\Http\Controllers\EpreuveController::class);
 Route::resource('corrections', App\Http\Controllers\CorrectionController::class);
+
+#visiteur
+Route::get('/', function () {
+    return view('welcome');
+})->name('welcome');
+#users
+Route::get('/home', function () {
+    return view('users.index');
+})->name('home');
+#epreuve
+
+#correction
+
+
