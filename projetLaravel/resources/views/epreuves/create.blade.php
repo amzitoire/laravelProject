@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Epreuve</h1>
+                    <h1>Create Epreuve</h1>
                 </div>
             </div>
         </div>
@@ -17,12 +17,14 @@
 
         <div class="card">
 
-            {!! Form::model($epreuve, ['route' => ['epreuves.update', $epreuve->id], 'method' => 'patch', 'files' => true]) !!}
+            {!! Form::open(['route' => 'epreuves.store', 'files' => true]) !!}
 
             <div class="card-body">
+
                 <div class="row">
                     @include('epreuves.fields')
                 </div>
+
             </div>
 
             <div class="card-footer">

@@ -41,3 +41,5 @@ Auth::routes();
 Route::get('/admin', [App\Http\Controllers\HomeController::class, 'index'])->name('admin');
 
 Route::resource('myUsers', App\Http\Controllers\MyUserController::class);
+Route::resource('epreuves', App\Http\Controllers\EpreuveController::class);
+Route::resource('corrections', App\Http\Controllers\CorrectionController::class);
