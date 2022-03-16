@@ -1,13 +1,20 @@
 <!-- Email Field -->
 <div class="form-group col-sm-6">
+    @if(Request::is('myUsers/*/edit*'))
+    @else
     {!! Form::label('email', 'Email:') !!}
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
+    @endif
 </div>
 
 <!-- Password Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('password', 'Password:') !!}
-    {!! Form::text('password', null, ['class' => 'form-control']) !!}
+    @if(Request::is('myUsers/*/edit*'))
+    @else
+        {!! Form::label('password', 'Password:') !!}
+        {!! Form::text('password', null, ['class' => 'form-control']) !!}
+    @endif
+
 </div>
 
 <!-- Is Fromesmt Field -->

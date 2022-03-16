@@ -5,7 +5,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1>Edit Epreuve</h1>
+                    <h1>Create Correction</h1>
                 </div>
             </div>
         </div>
@@ -17,17 +17,19 @@
 
         <div class="card">
 
-            {!! Form::model($epreuve, ['route' => ['epreuves.update', $epreuve->id], 'method' => 'patch', 'files' => true]) !!}
+            {!! Form::open(['route' => 'corrections.store', 'files' => true]) !!}
 
             <div class="card-body">
+
                 <div class="row">
-                    @include('epreuves.fields')
+                    @include('corrections.fields')
                 </div>
+
             </div>
 
             <div class="card-footer">
                 {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                <a href="{{ route('epreuves.index') }}" class="btn btn-default">Cancel</a>
+                <a href="{{ route('corrections.index') }}" class="btn btn-default">Cancel</a>
             </div>
 
             {!! Form::close() !!}
