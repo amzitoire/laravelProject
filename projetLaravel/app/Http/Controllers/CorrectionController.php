@@ -1,6 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
+
 
 use App\Http\Requests\CreateCorrectionRequest;
 use App\Http\Requests\UpdateCorrectionRequest;
@@ -177,5 +179,19 @@ class CorrectionController extends AppBaseController
         Flash::success('Correction deleted successfully.');
 
         return redirect(route('corrections.index'));
+    }
+
+
+      /**
+     * download file
+     * 
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Auth\Access\Response
+     */
+    public function download(Request $request, $id)
+    {
+        $epreuve = $this->correctionRepository->find($id);
+        return Storage::download($epreuve->file);
     }
 }

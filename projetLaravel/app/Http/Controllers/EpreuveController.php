@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\CreateEpreuveRequest;
 use App\Http\Requests\UpdateEpreuveRequest;
@@ -171,4 +172,21 @@ class EpreuveController extends AppBaseController
 
         return redirect(route('epreuves.index'));
     }
+
+        /**
+     * download file
+     * 
+     * @param \Illuminate\Http\Request  $request
+     *
+     * @return \Illuminate\Auth\Access\Response
+     */
+    public function download(Request $request, $id)
+    {
+        $epreuve = $this->epreuveRepository->find($id);
+        return Storage::download($epreuve->file);
+    }
+
+
+    
+    
 }

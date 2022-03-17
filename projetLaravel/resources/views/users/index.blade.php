@@ -37,7 +37,7 @@
 {{ $epreuve->professeur }}</p>
 <div class="row my-3">
 <a href="/read/{{ $epreuve->file }}" class="btn-sm btn-outline-dark border-1 col-4 mr-3"><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>
-<a href="/download/{{ $epreuve->file }}" class="btn-sm btn-dark col-5"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>
+<a href="{{ Route('downloadEpreuve', $epreuve->id) }}" class="btn-sm btn-dark col-5"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>
 </div>
 @if($epreuve->id_user == Auth::User()->id or Auth::User()->is_admin)
 <div class="row mb-3">
