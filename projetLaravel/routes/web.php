@@ -54,7 +54,11 @@ Route::get('/politiqueConf', [App\Http\Controllers\pageController::class, 'polit
 Route::get('/home',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('bibliotheque/corrections/{id}/epreuve',  [App\Http\Controllers\HomeController::class, 'showCorrections'])->name('corrections');
 #epreuve
+Route::get('/download/{id}/epreuve', [App\Http\Controllers\EpreuveController::class, 'download'])->name('downloadEpreuve');
+Route::get('/read/{id}/epreuve', [App\Http\Controllers\EpreuveController::class, 'readFile'])->name('readFileEpreuve');
 
 #correction
+Route::get('/download/{id}/correction', [App\Http\Controllers\CorrectionController::class, 'download'])->name('downloadCorrection');
+Route::get('/read/{id}/correction', [App\Http\Controllers\CorrectionController::class, 'readFile'])->name('readFileCorrection');
 
 
