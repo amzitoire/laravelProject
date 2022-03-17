@@ -37,7 +37,7 @@
                                 {{ $epreuve->professeur }}</p>
 
                             <div class="row my-3">
-                                <a href="/read/{{ $correction->file }}" class="btn-sm btn-outline-dark border-1 col-4 col-xs-12 mr-3 "><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>
+                                <a href="{{ Route('readFileCorrection', $correction->id) }}" class="btn-sm btn-outline-dark border-1 col-4 mr-3" target="_blank"><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>
                                 <a href="{{ Route('downloadCorrection', $correction->id) }}" class="btn-sm btn-dark col-6 col-xs-12"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>
                             </div>
                             @if($epreuve->id_user == Auth::User()->id or Auth::User()->is_admin)

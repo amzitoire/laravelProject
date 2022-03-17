@@ -186,7 +186,18 @@ class EpreuveController extends AppBaseController
         return Storage::download($epreuve->file);
     }
 
+    public function readFile(Request $request, $id)
+    {
+        $epreuve = $this->epreuveRepository->find($id);
 
+        if (empty($epreuve)) {
+            Flash::error('Epreuve not found');
+
+            return redirect(route('home'));
+        }
+        $url = Storage::url($epreuve->file);
+        return redirect($url);
+    }
     
     
 }

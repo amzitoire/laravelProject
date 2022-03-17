@@ -191,7 +191,21 @@ class CorrectionController extends AppBaseController
      */
     public function download(Request $request, $id)
     {
-        $epreuve = $this->correctionRepository->find($id);
-        return Storage::download($epreuve->file);
+        $correction = $this->correctionRepository->find($id);
+        return Storage::download($correction->file);
+    }
+
+
+    public function readFile(Request $request, $id)
+    {
+        $correction = $this->correctionRepository->find($id);
+
+        if (empty($correction)) {
+            Flash::error('Correction not found');
+
+            return redirect(route('home'));
+        }
+        $url = Storage::url($correction->file);
+        return redirect($url);
     }
 }
