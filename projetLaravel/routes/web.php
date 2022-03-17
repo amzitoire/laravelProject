@@ -45,6 +45,11 @@ Route::resource('corrections', App\Http\Controllers\CorrectionController::class)
 
 #visiteur
 Route::get('/', [App\Http\Controllers\guestController::class, 'welcome'])->name('welcome');
+Route::get('/about', [App\Http\Controllers\pageController::class, 'about'])->name('about');
+Route::get('/condition', [App\Http\Controllers\pageController::class, 'condition'])->name('condition');
+Route::get('/contact', [App\Http\Controllers\pageController::class, 'contact'])->name('contact');
+Route::get('/help', [App\Http\Controllers\pageController::class, 'help'])->name('help');
+Route::get('/politiqueConf', [App\Http\Controllers\pageController::class, 'politiqueConf'])->name('politiqueConf');
 #users
 Route::get('/home',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('bibliotheque/corrections/{id}/epreuve',  [App\Http\Controllers\HomeController::class, 'showCorrections'])->name('corrections');

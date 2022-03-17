@@ -6,19 +6,14 @@
                     <h5 class="ml-3">Liens Utiles</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">
+                            <a class="nav-link" href="{{route('home')}}">
                                 <span class="text-gray-400 hover:text-gray-500">Home</span>
 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">
+                            <a class="nav-link" href="{{route('home')}}">
                                 <span class="text-gray-400 hover:text-gray-500">Dashboard</span>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'home' %}">
-                                <span class="text-gray-400 hover:text-gray-500">Poster</span>
                             </a>
                         </li>
                     </ul>
@@ -27,23 +22,23 @@
                     <h5 class="ml-3">Autres</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'about' %}">
+                            <a class="nav-link" href="{{route('about')}}">
                                 <span class="text-gray-400 hover:text-gray-500">A propos</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'contact' %}">
+                            <a class="nav-link" href="{{route('contact')}}">
                                 <span class="text-gray-400 hover:text-gray-500">Contact</span>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'politique' %}">
+                            <a class="nav-link" href="{{route('politiqueConf')}}">
                                 <span class="text-gray-400 hover:text-gray-500">Politique de confidentialité</span>
 
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'using' %}">
+                            <a class="nav-link" href="{{route('condition')}}">
                                 <span class="text-gray-400 hover:text-gray-500">Conditions d'utilisation</span>
 
                             </a>
@@ -73,7 +68,7 @@
                     <p class="copyright text-gray-400 text-center mb-1 my-3">
                         Conçu avec <span class="text-2xl text-pink-400">&hearts;</span>
                         et beaucoup de <i class="fa fa-coffee" style="color: #ccc;"></i>
-                        sur <span>Django</span>
+                        sur <span>LARAVEL</span>
                         &middot; &copy; Copyright 2022 &middot; Tous Droits Réservés. @dar322
                     </p>
                 </div>
@@ -95,7 +90,7 @@
                             </a>
                         </li>
                         <li class="list-inline-item">
-                            <a href="https://github.com/django" target="_blank">
+                            <a href="https://github.com/amzitoire/laravelProject" target="_blank">
                                 <i class="fa fa-github"></i>
                             </a>
                         </li>

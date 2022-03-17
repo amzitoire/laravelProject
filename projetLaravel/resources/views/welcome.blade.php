@@ -20,21 +20,21 @@
                             <div class="col-12 col-md-6 col-lg-4 col-xl-3">
                                 <div class="card shadow-xl mt-3 rounded">
                                     <div class="align-items-center p-2 text-center">
-                {{--                        {% if epreuve.matiere == "Java" %}--}}
-                {{--                        <img src="{% static 'images/java.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {% elif epreuve.matiere == "Java EE" %}--}}
-                {{--                        <img src="{% static 'images/jee.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {%elif epreuve.matiere == "Django" %}--}}
-                {{--                        <img src="{% static 'images/django.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {%elif epreuve.matiere == "Test et Logiciels" %}--}}
-                {{--                        <img src="{% static 'images/test_logiciel.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {%elif epreuve.matiere == "Php" %}--}}
-                {{--                        <img src="{% static 'images/php.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {%elif epreuve.matiere == "Angular" %}--}}
-                {{--                        <img src="{% static 'images/angular.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {%else%}--}}
-                {{--                        <img src="{% static 'images/computer.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {% endif %}   --}}
+                                        @if( $epreuve->matiere == "Java" )
+                                            <img src="{{asset('images/java.png')}} " alt="" class="card-img-top rounded" width="160">
+                                        @elseif($epreuve->matiere =="Java EE")
+                                            <img src="{% static 'images/jee.png' %}" alt="" class="card-img-top rounded" width="160">
+                                        @elseif($epreuve->matiere =="Django" )
+                                            <img src="{{asset('images/django.png' )}}" alt="" class="card-img-top rounded" width="160">
+                                        @elseif($epreuve->matiere == "Test et Logiciels" )
+                                            <img src="{{asset( 'images/test_logiciel.png')}}" alt="" class="card-img-top rounded" width="160">
+                                        @elseif($epreuve->matiere == "Php")
+                                            <img src="{{asset( 'images/php.png')}}" alt="" class="card-img-top rounded" width="160">
+                                        @elseif($epreuve->matiere == "Angular" )
+                                            <img src="{{asset( 'images/angular.png' )}}" alt="" class="card-img-top rounded" width="160">
+                                        @else
+                                            <img src="{{asset( 'images/computer.png' )}}" alt="" class="card-img-top rounded" width="160">
+                                        @endif
                                     <div class="card-body mt-3 info">
                                             <h5 class="card-title"><strong> Titre: </strong><strong>{{ $epreuve->intitulet }}</strong></h5>
                                             <p class="text-start"><strong> Matiere: </strong>
@@ -43,8 +43,8 @@
                                             <p class="text-start"> <strong><i class="fa-solid fa-chalkboard-user"></i></strong>
                                                 {{ $epreuve->professeur }}</p>
                                             <div class="row my-3">
-                                                <a href="/read/{{ $epreuve->file }}" class="btn-sm btn-outline-dark border-1 col-4 mr-3"><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>
-                                                <a href="/download/{{ $epreuve->file }}" class="btn-sm btn-dark col-5"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>
+                                                <a href="{{ $epreuve->file }}" class="btn-sm btn-outline-dark border-1 col-4 mr-3"><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>
+                                                <a href="{{ $epreuve->file }}" class="btn-sm btn-dark col-5"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>
                                             </div>
                                             @foreach($corrections as $correction)
                                             @if($correction->id_epreuve == $epreuve->id)

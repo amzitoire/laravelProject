@@ -60,30 +60,9 @@
                         </ul>
                     </li>
                 </ul>
-{{--                <div class="dropdown offset-2 offset-lg-3">--}}
-{{--                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"--}}
-{{--                            data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                        --}}
-{{--                    </button>--}}
-{{--                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">--}}
-{{--                        <li><a class="dropdown-item" href="{% url 'profil' %}"> </a></li>--}}
-{{--                        <li>--}}
-{{--                            <hr class="dropdown-divider">--}}
-{{--                        </li>--}}
-
-{{--                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                            @csrf--}}
-{{--                            <li> <a class="dropdown-item" href=""><button> </button></a>--}}
-{{--                            </li>--}}
-{{--                        </form>--}}
-
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
                 @else
             <div class="col-lg-2 col-lg-2 text-center">
-                <a href="{% url 'home' %}" class="navbar-brand mr-5">
+                <a href="{{ url('/') }}" class="navbar-brand mr-5">
                     <span class="text-gray-400 hover:text-white"><i class="fa-solid fa-book"></i> eLIBRARY</span>
                 </a>
             </div>
