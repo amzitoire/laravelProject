@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Correction;
+use App\Models\Epreuve;
 use Illuminate\Support\Facades\Route;
 
 
@@ -42,13 +44,10 @@ Route::resource('epreuves', App\Http\Controllers\EpreuveController::class);
 Route::resource('corrections', App\Http\Controllers\CorrectionController::class);
 
 #visiteur
-Route::get('/', function () {
-    return view('welcome');
-})->name('welcome');
+Route::get('/', [App\Http\Controllers\guestController::class, 'welcome'])->name('welcome');
 #users
-Route::get('/home', function () {
-    return view('users.index');
-})->name('home');
+Route::get('/home',  [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('bibliotheque/corrections/{id}/epreuve',  [App\Http\Controllers\HomeController::class, 'showCorrections'])->name('corrections');
 #epreuve
 
 #correction

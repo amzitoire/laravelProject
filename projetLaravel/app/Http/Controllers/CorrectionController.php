@@ -61,9 +61,15 @@ class CorrectionController extends AppBaseController
      */
     public function store(CreateCorrectionRequest $request)
     {
+        $path = $request->file('file')->store('public/files');
         $input = $request->all();
-
-        $correction = $this->correctionRepository->create($input);
+        $correctionInfo=[
+            'intitulet' => $input['intitulet'],
+            'id_epreuve'=> $input['id_epreuve'],
+            'id_user'=> $input['id_user'],
+            'file'=> $path,
+        ];
+        $correction = $this->correctionRepository->create($correctionInfo);
 
         Flash::success('Correction saved successfully.');
 
@@ -133,7 +139,14 @@ class CorrectionController extends AppBaseController
             return redirect(route('corrections.index'));
         }
 
-        $correction = $this->correctionRepository->update($request->all(), $id);
+        $path = $request->file('file')->store('public/files');
+        $input = $request->all();
+        $correctionInfo=[
+            'intitulet' => $input['intitulet'],
+            'file'=> $path,
+        ];
+
+        $correction = $this->correctionRepository->update($correctionInfo, $id);
 
         Flash::success('Correction updated successfully.');
 

@@ -28,12 +28,12 @@
                     </li>
                     @endif
                     <li class="nav-item active">
-                        <a href="{% url 'dashboard' %}" class="nav-link mx-3">
+                        <a href="{{route('home')}}" class="nav-link mx-3">
                             <span class="text-gray-400 hover:text-white hover:break-after-column"><i class="fas fa-book-reader    "></i> Dashboard</span>
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="{% url 'new_epreuve' %}" class="nav-link mx-3">
+                        <a href="{{ route('epreuves.create') }}" class="nav-link mx-3">
                             <span class="text-gray-400 hover:text-white"><i class="fas fa-book-open    "></i> Poster une epreuve</span>
                         </a>
                     </li>

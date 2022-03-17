@@ -16,10 +16,10 @@
 
         <div class="container mt-5 mb-5">
             <div class="row row-cols-3 row-cols-lg-4">
-                {{--            {% for epreuve in epreuves %}--}}
-                {{--            <div class="col-12 col-md-6 col-lg-4 col-xl-3">--}}
-                {{--                <div class="card shadow-xl mt-3 rounded">--}}
-                {{--                    <div class="align-items-center p-2 text-center">--}}
+                            @foreach($epreuves as $epreuve)
+                            <div class="col-12 col-md-6 col-lg-4 col-xl-3">
+                                <div class="card shadow-xl mt-3 rounded">
+                                    <div class="align-items-center p-2 text-center">
                 {{--                        {% if epreuve.matiere == "Java" %}--}}
                 {{--                        <img src="{% static 'images/java.png' %}" alt="" class="card-img-top rounded" width="160">--}}
                 {{--                        {% elif epreuve.matiere == "Java EE" %}--}}
@@ -34,29 +34,30 @@
                 {{--                        <img src="{% static 'images/angular.png' %}" alt="" class="card-img-top rounded" width="160">--}}
                 {{--                        {%else%}--}}
                 {{--                        <img src="{% static 'images/computer.png' %}" alt="" class="card-img-top rounded" width="160">--}}
-                {{--                        {% endif %}                    <div class="card-body mt-3 info">--}}
-                {{--                            <h5 class="card-title"><strong> Titre: </strong><strong>{{ epreuve.intitulet }}</strong></h5>--}}
-                {{--                            <p class="text-start"><strong> Matiere: </strong>--}}
-                {{--                                {{ epreuve.matiere | truncatechars:"10" }}</p>--}}
-                {{--                            <p class="text-start"><strong>Filiere:</strong> {{epreuve.filiere }} </p>--}}
-                {{--                            <p class="text-start"> <strong><i class="fa-solid fa-chalkboard-user"></i></strong>--}}
-                {{--                                {{ epreuve.professeur }}</p>--}}
-                {{--                            <div class="row my-3">--}}
-                {{--                                <a href="/read/{{ epreuve.file }}" class="btn-sm btn-outline-dark border-1 col-4 mr-3"><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>--}}
-                {{--                                <a href="/download/{{ epreuve.file }}" class="btn-sm btn-dark col-5"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>--}}
-                {{--                            </div>--}}
-                {{--                            {% for correction in corrections %}--}}
-                {{--                            {%if correction.id_epreuve_id == epreuve.id %}--}}
-                {{--                            <div class="row my-3">--}}
-                {{--                                <a name="" id="" class="btn-sm btn-outline-dark border-1" href="{% url 'corrections' epreuve.id %}" role="button">Afficher les Corrections</a>--}}
-                {{--                            </div>--}}
-                {{--                            {% endif %}--}}
-                {{--                            {%endfor %}--}}
-                {{--                        </div>--}}
-                {{--                    </div>--}}
-                {{--                </div>--}}
-                {{--            </div>--}}
-                {{--            {% endfor %}--}}
+                {{--                        {% endif %}   --}}
+                                    <div class="card-body mt-3 info">
+                                            <h5 class="card-title"><strong> Titre: </strong><strong>{{ $epreuve->intitulet }}</strong></h5>
+                                            <p class="text-start"><strong> Matiere: </strong>
+                                                {{ $epreuve->matiere }}</p>
+                                            <p class="text-start"><strong>Filiere:</strong> {{$epreuve->filiere }} </p>
+                                            <p class="text-start"> <strong><i class="fa-solid fa-chalkboard-user"></i></strong>
+                                                {{ $epreuve->professeur }}</p>
+                                            <div class="row my-3">
+                                                <a href="/read/{{ $epreuve->file }}" class="btn-sm btn-outline-dark border-1 col-4 mr-3"><i class="fa-solid fas fa-eye "aria-hidden="true"></i> Voir</a>
+                                                <a href="/download/{{ $epreuve->file }}" class="btn-sm btn-dark col-5"><i class="fa-solid fa-download" aria-hidden="true"></i> Télécharger</a>
+                                            </div>
+                                            @foreach($corrections as $correction)
+                                            @if($correction->id_epreuve == $epreuve->id)
+                                            <div class="row my-3">
+                                                <a id="" class="btn-sm btn-outline-dark border-1" href="{% url 'corrections' epreuve.id %}" role="button">Afficher les Corrections</a>
+                                            </div>
+                                            @endif
+                                            @endforeach
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                @endforeach
             </div>
         </div>
     </div>
