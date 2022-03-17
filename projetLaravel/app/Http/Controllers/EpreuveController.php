@@ -54,9 +54,18 @@ class EpreuveController extends AppBaseController
      */
     public function store(CreateEpreuveRequest $request)
     {
-        $input = $request->all();
         $path = $request->file('file')->store('public/files');
-        $epreuve = $this->epreuveRepository->create($input);
+        $input = $request->all();
+        $epreuveInfo=[
+            'intitulet' => $input['intitulet'],
+            'matiere' => $input['matiere'],
+            'filiere' => $input['filiere'],
+            'professeur'=> $input['professeur'],
+            'id_user'=> $input['id_user'],
+            'file'=> $path,
+        ];
+
+        $epreuve = $this->epreuveRepository->create($epreuveInfo);
 
         Flash::success('Epreuve saved successfully.');
 
@@ -121,6 +130,14 @@ class EpreuveController extends AppBaseController
             return redirect(route('epreuves.index'));
         }
         $path = $request->file('file')->store('public/files');
+        $input = $request->all();
+        $epreuveInfo=[
+            'intitulet' => $input['intitulet'],
+            'matiere' => $input['matiere'],
+            'filiere' => $input['filiere'],
+            'professeur'=> $input['professeur'],
+            'file'=> $path,
+        ];
 
         $epreuve = $this->epreuveRepository->update($request->all(), $id);
 
