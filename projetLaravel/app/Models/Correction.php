@@ -21,7 +21,7 @@ class Correction extends Model
 
 
     public $table = 'corrections';
-    
+
 
 
 
@@ -51,8 +51,15 @@ class Correction extends Model
      * @var array
      */
     public static $rules = [
-        
-    ];
 
-    
+    ];
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     **/
+    public function id()
+    {
+        return $this->belongsTo(\App\Models\User::class, 'id', 'id_user');
+    }
+
+
 }

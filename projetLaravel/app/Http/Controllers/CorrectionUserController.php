@@ -1,19 +1,19 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
-
 
 use App\Http\Requests\CreateCorrectionRequest;
 use App\Http\Requests\UpdateCorrectionRequest;
 use App\Models\Epreuve;
 use App\Repositories\CorrectionRepository;
-use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\AppBaseController;
 use Flash;
 use Response;
 
-class CorrectionController extends AppBaseController
+
+class CorrectionUserController extends AppBaseController
 {
     /** @var CorrectionRepository $correctionRepository*/
     private $correctionRepository;
@@ -32,10 +32,7 @@ class CorrectionController extends AppBaseController
      */
     public function index(Request $request)
     {
-        $corrections = $this->correctionRepository->paginate(10);
 
-        return view('corrections.index')
-            ->with('corrections', $corrections);
     }
 
     /**
@@ -43,15 +40,10 @@ class CorrectionController extends AppBaseController
      *
      * @return Response
      */
-    public function create()
+    public function create($id)
     {
-        $epreuves = Epreuve::all();
-        $list=[];
-        foreach ($epreuves as $epreuve ){
-         $list[$epreuve->id]= ("id: $epreuve->id intitulet : $epreuve->intitulet matiere : $epreuve->matiere");
-        }
 
-        return view('corrections.create')->with('epreuves', $list);
+        return view('correctionsUser.create')->with('id_epreuve',$id);
     }
 
     /**
@@ -63,8 +55,14 @@ class CorrectionController extends AppBaseController
      */
     public function store(CreateCorrectionRequest $request)
     {
-        $path = $request->file('file')->store('public/files');
+
         $input = $request->all();
+        if (empty($request->file('file'))) {
+            Flash::error('file missing');
+
+            return redirect(route('addCorrection', $input['id_epreuve']));
+        }
+        $path = $request->file('file')->store('public/files');
         $correctionInfo=[
             'intitulet' => $input['intitulet'],
             'id_epreuve'=> $input['id_epreuve'],
@@ -75,7 +73,7 @@ class CorrectionController extends AppBaseController
 
         Flash::success('Correction saved successfully.');
 
-        return redirect(route('corrections.index'));
+        return redirect(route('corrections',$input['id_epreuve']));
     }
 
     /**
@@ -87,15 +85,7 @@ class CorrectionController extends AppBaseController
      */
     public function show($id)
     {
-        $correction = $this->correctionRepository->find($id);
 
-        if (empty($correction)) {
-            Flash::error('Correction not found');
-
-            return redirect(route('corrections.index'));
-        }
-
-        return view('corrections.show')->with('correction', $correction);
     }
 
     /**
@@ -108,19 +98,12 @@ class CorrectionController extends AppBaseController
     public function edit($id)
     {
         $correction = $this->correctionRepository->find($id);
-        $epreuves = Epreuve::all();
         if (empty($correction)) {
             Flash::error('Correction not found');
 
-            return redirect(route('corrections.index'));
+            return redirect(route('home'));
         }
-
-        $list=[];
-        foreach ($epreuves as $epreuve ){
-            $list[$epreuve->id]= ("id: $epreuve->id intitulet : $epreuve->intitulet matiere : $epreuve->matiere");
-        }
-
-        return view('corrections.edit')->with('correction', $correction)->with('epreuves', $list);
+        return view('correctionsUser.edit')->with('correction', $correction)->with('id_epreuves', $id);
     }
 
     /**
@@ -134,14 +117,18 @@ class CorrectionController extends AppBaseController
     public function update($id, UpdateCorrectionRequest $request)
     {
         $correction = $this->correctionRepository->find($id);
-
         if (empty($correction)) {
             Flash::error('Correction not found');
 
-            return redirect(route('corrections.index'));
+            return redirect(route('home'));
         }
-        Storage::delete($correction->file);
-        $path = $request->file('file')->store('public/files');
+
+        if (empty($request->file('file'))) {
+            $path = $correction->file;
+        }else{
+            Storage::delete($correction->file);
+            $path = $request->file('file')->store('public/files');
+        }
         $input = $request->all();
         $correctionInfo=[
             'intitulet' => $input['intitulet'],
@@ -152,7 +139,7 @@ class CorrectionController extends AppBaseController
 
         Flash::success('Correction updated successfully.');
 
-        return redirect(route('corrections.index'));
+        return redirect(route('corrections',$correction->id_epreuve));
     }
 
     /**
@@ -171,41 +158,14 @@ class CorrectionController extends AppBaseController
         if (empty($correction)) {
             Flash::error('Correction not found');
 
-            return redirect(route('corrections.index'));
+            return redirect(route('home'));
         }
         Storage::delete($correction->file);
         $this->correctionRepository->delete($id);
 
         Flash::success('Correction deleted successfully.');
 
-        return redirect(route('corrections.index'));
+        return redirect(route('home'));
     }
 
-
-      /**
-     * download file
-     *
-     * @param \Illuminate\Http\Request  $request
-     *
-     * @return \Illuminate\Auth\Access\Response
-     */
-    public function download(Request $request, $id)
-    {
-        $correction = $this->correctionRepository->find($id);
-        return Storage::download($correction->file);
-    }
-
-
-    public function readFile(Request $request, $id)
-    {
-        $correction = $this->correctionRepository->find($id);
-
-        if (empty($correction)) {
-            Flash::error('Correction not found');
-
-            return redirect(route('home'));
-        }
-        $url = Storage::url($correction->file);
-        return redirect($url);
-    }
 }

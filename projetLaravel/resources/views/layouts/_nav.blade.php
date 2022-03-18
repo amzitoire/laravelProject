@@ -1,4 +1,4 @@
-<div class=" container-fluid bg-dark w-100 h-15 fixed-top">
+<div class=" container-fluid bg-dark w-100 h-15 fixed-top mb-5">
     <div class="row justify-content-center">
         <nav class="navbar bg-gray-800 navbar-expand-sm navbar-dark">
             @if (Route::has('login'))
@@ -33,7 +33,7 @@
                         </a>
                     </li>
                     <li class="nav-item active">
-                        <a href="{{ route('epreuves.create') }}" class="nav-link mx-3">
+                        <a href="{{ route('epreuvesUser.create') }}" class="nav-link mx-3">
                             <span class="text-gray-400 hover:text-white"><i class="fas fa-book-open    "></i> Poster une epreuve</span>
                         </a>
                     </li>
@@ -46,7 +46,7 @@
                         <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
                             <!-- Menu Footer-->
                             <li class="user-footer mx-3">
-                                <a href="#" class="btn btn-default btn-flat "><i class="fa fa-cog" aria-hidden="true"></i> Profile</a>
+                                <a href="{{ route('profil') }}" class="btn btn-default btn-flat "><i class="fa fa-cog" aria-hidden="true"></i> Profile</a>
                             </li>
                             <li class="user-footer mx-auto">
                                 <a href="#" class="btn btn-default btn-flat float-right"
@@ -60,30 +60,9 @@
                         </ul>
                     </li>
                 </ul>
-{{--                <div class="dropdown offset-2 offset-lg-3">--}}
-{{--                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"--}}
-{{--                            data-bs-toggle="dropdown" aria-expanded="false">--}}
-{{--                        --}}
-{{--                    </button>--}}
-{{--                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">--}}
-{{--                        <li><a class="dropdown-item" href="{% url 'profil' %}"> </a></li>--}}
-{{--                        <li>--}}
-{{--                            <hr class="dropdown-divider">--}}
-{{--                        </li>--}}
-
-{{--                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
-{{--                            @csrf--}}
-{{--                            <li> <a class="dropdown-item" href=""><button> </button></a>--}}
-{{--                            </li>--}}
-{{--                        </form>--}}
-
-{{--                    </ul>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-
                 @else
             <div class="col-lg-2 col-lg-2 text-center">
-                <a href="{% url 'home' %}" class="navbar-brand mr-5">
+                <a href="{{ url('/') }}" class="navbar-brand mr-5">
                     <span class="text-gray-400 hover:text-white"><i class="fa-solid fa-book"></i> eLIBRARY</span>
                 </a>
             </div>

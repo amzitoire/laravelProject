@@ -21,8 +21,8 @@ class CreateCorrectionsTable extends Migration
             $table->bigInteger('id_user')->unsigned();
             $table->bigInteger('id_epreuve')->unsigned();
             $table->timestamps();
-            $table->foreign('id_user')->references('id')->on('users');
-            $table->foreign('id_epreuve')->references('id')->on('epreuves');
+            $table->foreign('id_user')->references('id')->on('users')->onDelete('cascade');;
+            $table->foreign('id_epreuve')->references('id')->on('epreuves')->onDelete('cascade');;
         });
     }
 

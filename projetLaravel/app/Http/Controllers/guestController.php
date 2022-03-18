@@ -34,7 +34,6 @@ class guestController extends Controller
      */
     public function welcome()
     {
-        if(Auth::class)
         $epreuves = Epreuve::all();
         $corrections = Correction::all();
         return view('welcome')->with('epreuves', $epreuves)->with('corrections', $corrections);

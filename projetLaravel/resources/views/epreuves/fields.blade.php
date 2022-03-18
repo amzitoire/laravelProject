@@ -7,7 +7,7 @@
 <!-- Matiere Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('matiere', 'Matiere:') !!}
-    {!! Form::select('matiere', ['java' => 'java', 'jee' => 'jee', 'django' => 'django', 'laravel' => 'laravel', 'autre' => 'autre'], null, ['class' => 'form-control custom-select']) !!}
+    {!! Form::select('matiere', ['Java' => 'Java', 'Jee' => 'Jee', 'Django' => 'Django', 'Laravel' => 'Laravel', 'Autre' => 'Autre'], null, ['class' => 'form-control custom-select']) !!}
 </div>
 
 
