@@ -19,7 +19,7 @@
                         <a href="{{ route('profilEdit',Auth::User()->id) }}" class="btn btn-outline-dark ">Modifier vos informations </a>
                     </div>
                     <div class="col-5 mx-auto">
-                        <a href="{% url 'password' %}" class="btn btn-outline-dark ">Changer votre mot de passe</a>
+                        <a href="{{ route('passwordEdit',Auth::User()->id) }}" class="btn btn-outline-dark ">Changer votre mot de passe</a>
                     </div>
                 </div>
             </div>

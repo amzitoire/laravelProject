@@ -19,6 +19,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::resource('my_users', App\Http\Controllers\API\MyUserAPIController::class);
+//Route::resource('my_users', App\Http\Controllers\API\MyUserAPIController::class);
 //Route::resource('epreuves', App\Http\Controllers\API\EpreuveAPIController::class);
 //Route::resource('corrections', App\Http\Controllers\API\CorrectionAPIController::class);

@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use Laracasts\Flash\Flash;
 
 class adminController extends Controller
 {
@@ -17,7 +20,6 @@ class adminController extends Controller
         $this->middleware('auth');
 
     }
-
 
 
     /**
@@ -47,7 +49,7 @@ class adminController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -58,7 +60,7 @@ class adminController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +71,7 @@ class adminController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +82,8 @@ class adminController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param \Illuminate\Http\Request $request
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -92,11 +94,36 @@ class adminController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param \Illuminate\Http\Request $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendMail(Request $request)
+    {
+        $data = $request->all();
+
+        $details = [
+            'title' => $data['subject'],
+            'body' => $data['body'],
+        ];
+        $users = User::where('is_newsletter', 1);
+
+        foreach ($users as $user) {
+            Mail::to($user)->send(new \App\Mail\MyTestMail($details));
+        }
+
+        Flash::success('Email Newsletter send successfully.');
+
+        return redirect(route('admin'));
     }
 }

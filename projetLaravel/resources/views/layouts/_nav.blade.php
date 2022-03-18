@@ -21,11 +21,6 @@
                             <span class="text-gray-400 hover:text-white hover:break-after-column"><i class="fa fa-desktop" aria-hidden="true"></i> Admin</span>
                         </a>
                     </li>
-                    <li class="nav-item active">
-                        <a href="/newsletter" class="nav-link">
-                            <span class="text-gray-400 hover:text-white hover:break-after-column"><i class="fa fa-envelope" aria-hidden="true"></i> Newsletter</span>
-                        </a>
-                    </li>
                     @endif
                     <li class="nav-item active">
                         <a href="{{route('home')}}" class="nav-link mx-3">

@@ -23,6 +23,15 @@
           integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
           crossorigin="anonymous"/>
 
+{{--    <link rel="stylesheet" href="../../static/css/form.css">--}}
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/20e2995d15.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,28 +41,30 @@
 
 </head>
 <body class="hold-transition login-page">
-<div class="login-box">
-    <div class="login-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+<div class="container-fluid pb-5 " style="background-image:url({{asset('images/ebook3.jpg')}}) !important;background-size:cover">
+    <div class="row bg-gray-50" >
+        <div class="p-3">
+            <a href="{{route('welcome')}}">
+                <span class="text-blue-500 text-center text-3xl"><i class="fa-solid fa-book"></i> eLIBRARY</span>
+            </a>
+        </div>
+        <hr>
     </div>
+    <div class="row justify-content-center " >
+        <div class="col-10 col-lg-6 col-xl-5 shadow-xl mt-3 rounded " style="background:white !important" >
+            <h1 class="text-dark fw-bold fs-1 text-center py-5"><i class="fa-solid fa-unlock-keyhole"></i> Connexion</h1>
+            <p class="text-center text-xl text-gray-500">Content de vous revoir !</p>
+            <p class="text-center text-xl text-gray-500 mb-5">Connectez-vous afin d'accéder à vos épreuves</p>
 
-    <!-- /.login-logo -->
 
-    <!-- /.login-box-body -->
-    <div class="card">
-        <div class="card-body login-card-body">
-            <p class="login-box-msg">
-                @lang('auth.login.title')
-            </p>
-
-            <form method="post" action="{{ url('/login') }}">
+            <form method="post" action="{{ url('/login') }}" >
                 @csrf
 
                 <div class="input-group mb-3">
                     <input type="email"
                            name="email"
                            value="{{ old('email') }}"
-                           placeholder="@lang('auth.email')"
+                           placeholder="email"
                            class="form-control @error('email') is-invalid @enderror">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-envelope"></span></div>
@@ -66,7 +77,7 @@
                 <div class="input-group mb-3">
                     <input type="password"
                            name="password"
-                           placeholder="@lang('auth.password')"
+                           placeholder="mot de passe"
                            class="form-control @error('password') is-invalid @enderror">
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -83,29 +94,31 @@
                     <div class="col-8">
                         <div class="icheck-primary">
                             <input type="checkbox" id="remember">
-                            <label for="remember">@lang('auth.remember_me')</label>
+                            <label for="remember">remember_me</label>
                         </div>
                     </div>
 
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">@lang('auth.sign_in')</button>
+                        <button type="submit" class="btn btn-outline-primary btn-block bg-primary">Se Connecter</button>
                     </div>
 
                 </div>
             </form>
 
-            <p class="mb-1">
-                <a href="{{ route('password.request') }}">@lang('auth.login.forgot_password')</a>
-            </p>
-            <p class="mb-0">
-                <a href="{{ route('register') }}" class="text-center">@lang('auth.login.register_membership')</a>
+            <p class="text-center text-lg py-5 ">
+                <span class="text-gray-600"> Vous n'avez pas encore de compte ? </span> <br>
+                <a
+                    href="{{ route('register') }}"
+                    class="underline text-blue-600 hover:no-underline">Inscrivez-vous</a>
             </p>
         </div>
         <!-- /.login-card-body -->
     </div>
-
 </div>
 <!-- /.login-box -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="

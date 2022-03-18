@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{{ config('app.name') }} | @lang('auth.registration.title')</title>
+    <title>{{ config('app.name') }} |  Inscription</title>
 
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
@@ -23,6 +23,14 @@
           integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
           crossorigin="anonymous"/>
 
+    <link rel="stylesheet" href="../../static/css/form.css">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/20e2995d15.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -31,40 +39,28 @@
     <![endif]-->
 </head>
 <body class="hold-transition register-page">
-<div class="register-box">
-    <div class="register-logo">
-        <a href="{{ url('/home') }}"><b>{{ config('app.name') }}</b></a>
+<div class="container-fluid pb-5" style="background-image:url({{asset('images/ebook3.jpg')}}) !important;background-size:cover">
+    <div class="row bg-gray-50">
+        <div class="p-3">
+            <a href="{{route('welcome')}}">
+                <span class="text-blue-500 text-center text-3xl"><i class="fa-solid fa-book"></i> eLIBRARY</span>
+            </a>
+        </div>
+        <hr>
     </div>
+    <div class="row justify-content-center " >
+        <div class="col-10 col-lg-6 col-xl-5 shadow-xl mt-3 rounded " style="background:white !important">
+            <h1 class="text-dark fw-bold fs-1 text-center py-5">Inscription</h1>
 
-    <div class="card">
-        <div class="card-body register-card-body">
-            <p class="login-box-msg">@lang('auth.registration.title')</p>
 
             <form method="post" action="{{ route('register') }}">
                 @csrf
-
-{{--                <div class="input-group mb-3">--}}
-{{--                    <input type="text"--}}
-{{--                           name="name"--}}
-{{--                           class="form-control @error('name') is-invalid @enderror"--}}
-{{--                           value="{{ old('name') }}"--}}
-{{--                           placeholder="@lang('auth.full_name')">--}}
-{{--                    <div class="input-group-append">--}}
-{{--                        <div class="input-group-text">--}}
-{{--                            <span class="fas fa-user"></span>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                    @error('name')--}}
-{{--                    <span class="error invalid-feedback">{{ $message }}</span>--}}
-{{--                    @enderror--}}
-{{--                </div>--}}
-
                 <div class="input-group mb-3">
                     <input type="email"
                            name="email"
                            value="{{ old('email') }}"
                            class="form-control @error('email') is-invalid @enderror"
-                           placeholder="@lang('auth.email')">
+                           placeholder="email">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -79,7 +75,7 @@
                     <input type="password"
                            name="password"
                            class="form-control @error('password') is-invalid @enderror"
-                           placeholder="@lang('auth.password')">
+                           placeholder="password">
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-lock"></span>
@@ -94,24 +90,27 @@
                     <input type="password"
                            name="password_confirmation"
                            class="form-control"
-                           placeholder="@lang('auth.confirm_password')">
+                           placeholder="confirmer password">
                     <div class="input-group-append">
                         <div class="input-group-text"><span class="fas fa-lock"></span></div>
                     </div>
                 </div>
 
                 <div class="input-group mb-3">
-                    <label for="@lang('auth.is_fromEsmt')">@lang('auth.is_fromEsmt')</label>
+
                     <input type="hidden"
                            name="is_fromEsmt"  value="0">
+                    <div class="icheck-primary col-6">
                     <input type="checkbox"
                            name="is_fromEsmt"
                            value="1"
-                           class="form-control form-check-input @error('is_fromEsmt') is-invalid @enderror"
+                           class=" form-check-input @error('is_fromEsmt') is-invalid @enderror my-3"
                            >
+                    <label for="@lang('auth.is_fromEsmt')" class="form-check-label"> Etudiant de l'ESMT</label>
+                    </div>
                     <div class="input-group-append">
                         <div class="input-group-text">
-                            <span class="fas fa-envelope"></span>
+                            <span class=" fa fa-user" aria-hidden="true"></span>
                         </div>
                     </div>
                     @error('is_fromEsmt')
@@ -120,15 +119,17 @@
                 </div>
 
                 <div class="input-group mb-3">
-                    <label for="@lang('auth.is_newsletter')">@lang('auth.is_newsletter')</label>
+
                         <input type="hidden"
                                name="is_newsletter"  value="0">
+                    <div class="icheck-primary col-6">
                         <input type="checkbox"
                            name="is_newsletter"
                            value="1"
-                           class="form-control form-check-input @error('is_newsletterl') is-invalid @enderror"
+                           class="form-check-input @error('is_newsletterl') is-invalid @enderror"
                            >
-
+                    <label for="@lang('auth.is_newsletter')" class="form-check-label">S'Abonner a la newsletter</label>
+                    </div>
                     <div class="input-group-append">
                         <div class="input-group-text">
                             <span class="fas fa-envelope"></span>
@@ -144,21 +145,22 @@
                         <div class="icheck-primary">
                             <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                             <label for="agreeTerms">
-                                @lang('auth.registration.i_agree')
-                                <a href="#">@lang('auth.registration.terms')</a>
+                                accepter les termes d'inscription <br>
+                                <a href="{{route('condition')}}" class="btn btn-link">Conditions utilisation</a>
                             </label>
                         </div>
                     </div>
 
                     <!-- /.col -->
                     <div class="col-4">
-                        <button type="submit" class="btn btn-primary btn-block">@lang('auth.register')</button>
+                        <button type="submit" class="btn btn-primary btn-block bg-primary">S'Inscrire</button>
                     </div>
                     <!-- /.col -->
                 </div>
             </form>
-
-            <a href="{{ route('login') }}" class="text-center">@lang('auth.registration.have_membership')</a>
+            <p class="text-center text-lg py-5 ">
+                <span class="text-gray-600"> Vous avez déjà un compte ?</span> <a href="{{ route('login') }}" class="underline text-blue-600 hover:no-underline">Connectez-vous</a>
+            </p>
         </div>
         <!-- /.form-box -->
     </div><!-- /.card -->
@@ -166,6 +168,10 @@
     <!-- /.form-box -->
 </div>
 <!-- /.register-box -->
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+</script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
         integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg=="

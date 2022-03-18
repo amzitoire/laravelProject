@@ -128,6 +128,8 @@ class MyUserController extends AppBaseController
         }
         $data = $request->all();
         $userinfo=[
+            'is_active'=> $data['is_active'],
+            'is_admin'=> $data['is_admin'],
             'is_fromEsmt' => $data['is_fromEsmt'],
             'is_newsletter' => $data['is_newsletter'],
         ];
@@ -164,4 +166,6 @@ class MyUserController extends AppBaseController
 
         return redirect(route('myUsers.index'));
     }
+
+
 }

@@ -43,6 +43,8 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('myUsers', App\Http\Controllers\MyUserController::class);
     Route::resource('epreuves', App\Http\Controllers\EpreuveController::class);
     Route::resource('corrections', App\Http\Controllers\CorrectionController::class);
+    #newsletter
+    Route::post('admin/send-newsletter', [App\Http\Controllers\adminController::class, 'sendMail'])->name('sendMail');
 });
 
 
@@ -59,6 +61,11 @@ Route::get('bibliotheque/corrections/{id}/epreuve',  [App\Http\Controllers\HomeC
 Route::get('/profil',  [App\Http\Controllers\HomeController::class, 'profil'])->name('profil');
 Route::get('/profil/{id}/edit',  [App\Http\Controllers\HomeController::class, 'edit'])->name('profilEdit');
 Route::get('/profil/{id}/update',  [App\Http\Controllers\HomeController::class, 'update'])->name('profilUpdate');
+Route::post('/sendMailNewsletter',  [App\Http\Controllers\HomeController::class, 'sendMailNewsletter'])->name('sendMailNewsletter');
+Route::get('/profil/{id}/password/edit',  [App\Http\Controllers\HomeController::class, 'editPassword'])->name('passwordEdit');
+Route::get('/profil/{id}/password/update',  [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('passwordUpdate');
+
+
 #epreuve
 Route::get('/download/{id}/epreuve', [App\Http\Controllers\EpreuveController::class, 'download'])->name('downloadEpreuve');
 Route::get('/read/{id}/epreuve', [App\Http\Controllers\EpreuveController::class, 'readFile'])->name('readFileEpreuve');

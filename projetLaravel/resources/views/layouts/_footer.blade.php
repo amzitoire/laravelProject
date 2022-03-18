@@ -48,12 +48,15 @@
                 <div class="mb-5 col-lg-6">
                     <h4 class="mb-1"><i class="fa fa-bell-o"></i> Recevez toute l'actualité du site dans votre boîte
                         mail !</h4>
-                    <form action="{% url 'newsletterTrue' %}" method="POST">
+                    <form action="{{route('sendMailNewsletter')}}" method="POST">
                         @csrf
                         <div class="form-group ">
                             <div class="row">
+                                @auth
+                                <input type="hidden" name="id" value="">
+                                @endif
                                 <div class="mt-3 mt-lg-0 col-lg-4">
-                                    <a class="btn text-white bg-red-800 hover:bg-slate-800"><button><i class="fa fa-envelope"></i> S'abonner à la
+                                    <a class="btn text-white bg-red-800 hover:bg-slate-800"><button type="submit"><i class="fa fa-envelope"></i> S'abonner à la
                                             newsletter</button></a>
                                 </div>
                             </div>
