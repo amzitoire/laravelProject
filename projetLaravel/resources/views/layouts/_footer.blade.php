@@ -6,7 +6,7 @@
                     <h5 class="ml-3">Liens Utiles</h5>
                     <ul class="nav flex-column">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{route('home')}}">
+                            <a class="nav-link" href="{{route('welcome')}}">
                                 <span class="text-gray-400 hover:text-gray-500">Home</span>
 
                             </a>

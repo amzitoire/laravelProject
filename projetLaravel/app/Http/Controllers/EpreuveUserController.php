@@ -1,25 +1,24 @@
 <?php
 
 namespace App\Http\Controllers;
-use Illuminate\Support\Facades\Storage;
 
 use App\Http\Requests\CreateEpreuveRequest;
 use App\Http\Requests\UpdateEpreuveRequest;
 use App\Repositories\EpreuveRepository;
-use App\Http\Controllers\AppBaseController;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Controllers\AppBaseController;
 use Flash;
 use Response;
 
-class EpreuveController extends AppBaseController
+class EpreuveUserController extends AppBaseController
 {
-    /** @var EpreuveRepository $epreuveRepository*/
+    /** @var EpreuveRepository $epreuveRepository */
     private $epreuveRepository;
 
     public function __construct(EpreuveRepository $epreuveRepo)
     {
         $this->epreuveRepository = $epreuveRepo;
-        $this->middleware('auth');
     }
 
     /**
@@ -32,10 +31,6 @@ class EpreuveController extends AppBaseController
     public function index(Request $request)
     {
 
-        $epreuves = $this->epreuveRepository->paginate(10);
-
-        return view('epreuves.index')
-            ->with('epreuves', $epreuves);
     }
 
     /**
@@ -45,7 +40,7 @@ class EpreuveController extends AppBaseController
      */
     public function create()
     {
-        return view('epreuves.create');
+        return view('epreuvesUser.create');
     }
 
     /**
@@ -57,22 +52,28 @@ class EpreuveController extends AppBaseController
      */
     public function store(CreateEpreuveRequest $request)
     {
+        if (empty($request->file('file'))) {
+            Flash::error('file missing');
+
+            return redirect(route('epreuvesUser.create'));
+        }
+
         $path = $request->file('file')->store('public/files');
         $input = $request->all();
-        $epreuveInfo=[
+        $epreuveInfo = [
             'intitulet' => $input['intitulet'],
             'matiere' => $input['matiere'],
             'filiere' => $input['filiere'],
-            'professeur'=> $input['professeur'],
-            'id_user'=> $input['id_user'],
-            'file'=> $path,
+            'professeur' => $input['professeur'],
+            'id_user' => $input['id_user'],
+            'file' => $path,
         ];
 
         $epreuve = $this->epreuveRepository->create($epreuveInfo);
 
         Flash::success('Epreuve saved successfully.');
 
-        return redirect(route('epreuves.index'));
+        return redirect(route('home'));
     }
 
     /**
@@ -84,15 +85,7 @@ class EpreuveController extends AppBaseController
      */
     public function show($id)
     {
-        $epreuve = $this->epreuveRepository->find($id);
 
-        if (empty($epreuve)) {
-            Flash::error('Epreuve not found');
-
-            return redirect(route('epreuves.index'));
-        }
-
-        return view('epreuves.show')->with('epreuve', $epreuve);
     }
 
     /**
@@ -109,10 +102,10 @@ class EpreuveController extends AppBaseController
         if (empty($epreuve)) {
             Flash::error('Epreuve not found');
 
-            return redirect(route('epreuves.index'));
+            return redirect(route('home'));
         }
 
-        return view('epreuves.edit')->with('epreuve', $epreuve);
+        return view('epreuvesUser.edit')->with('epreuve', $epreuve);
     }
 
     /**
@@ -129,24 +122,29 @@ class EpreuveController extends AppBaseController
 
         if (empty($epreuve)) {
             Flash::error('Epreuve not found');
-            Storage::delete($epreuve->file);
-            return redirect(route('epreuves.index'));
+
+            return redirect(route('home'));
         }
-        $path = $request->file('file')->store('public/files');
+        if (empty($request->file('file'))) {
+            $path = $epreuve->file;
+        }else{
+            Storage::delete($epreuve->file);
+            $path=$request->file('file')->store('public/files');
+        }
         $input = $request->all();
-        $epreuveInfo=[
+        $epreuveInfo = [
             'intitulet' => $input['intitulet'],
             'matiere' => $input['matiere'],
             'filiere' => $input['filiere'],
-            'professeur'=> $input['professeur'],
-            'file'=> $path,
+            'professeur' => $input['professeur'],
+            'file' => $path,
         ];
 
-        $epreuve = $this->epreuveRepository->update($request->all(), $id);
+        $epreuve = $this->epreuveRepository->update($epreuveInfo, $id);
 
         Flash::success('Epreuve updated successfully.');
 
-        return redirect(route('epreuves.index'));
+        return redirect(route('home'));
     }
 
     /**
@@ -154,9 +152,9 @@ class EpreuveController extends AppBaseController
      *
      * @param int $id
      *
+     * @return Response
      * @throws \Exception
      *
-     * @return Response
      */
     public function destroy($id)
     {
@@ -165,41 +163,14 @@ class EpreuveController extends AppBaseController
         if (empty($epreuve)) {
             Flash::error('Epreuve not found');
 
-            return redirect(route('epreuves.index'));
+            return redirect(route('home'));
         }
         Storage::delete($epreuve->file);
         $this->epreuveRepository->delete($id);
 
         Flash::success('Epreuve deleted successfully.');
 
-        return redirect(route('epreuves.index'));
+        return redirect(route('home'));
     }
-
-        /**
-     * download file
-     *
-     * @param \Illuminate\Http\Request  $request
-     *
-     * @return \Illuminate\Auth\Access\Response
-     */
-    public function download(Request $request, $id)
-    {
-        $epreuve = $this->epreuveRepository->find($id);
-        return Storage::download($epreuve->file);
-    }
-
-    public function readFile(Request $request, $id)
-    {
-        $epreuve = $this->epreuveRepository->find($id);
-
-        if (empty($epreuve)) {
-            Flash::error('Epreuve not found');
-
-            return redirect(route('home'));
-        }
-        $url = Storage::url($epreuve->file);
-        return redirect($url);
-    }
-
-
 }
+
