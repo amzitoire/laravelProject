@@ -9,7 +9,11 @@
       <sourceFolder url="file://$MODULE_DIR$/spec" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="true" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/laracasts/flash" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/infyomlabs/adminlte-templates" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/infyomlabs/generator-builder" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/psr/simple-cache" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/infyomlabs/laravel-generator" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/psr/http-factory" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/psr/container" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/psr/http-client" />
@@ -49,6 +53,7 @@
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpspec/prophecy" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpunit/php-code-coverage" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpunit/phpunit" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/laravel/ui" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpunit/php-text-template" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpunit/php-invoker" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpunit/php-file-iterator" />
@@ -74,6 +79,7 @@
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/symfony/polyfill-php81" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/laravelcollective/html" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/symfony/translation-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/symfony/service-contracts" />
@@ -91,9 +97,13 @@
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/ralouphie/getallheaders" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/type" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/diff" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/lines-of-code" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/dbal" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/object-enumerator" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/event-manager" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/comparator" />
+      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/deprecations" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/code-unit" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/exporter" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/sebastian/cli-parser" />
@@ -118,16 +128,6 @@
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpdocumentor/type-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/phpdocumentor/reflection-common" />
       <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/graham-campbell/result-type" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/laracasts/flash" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/infyomlabs/adminlte-templates" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/infyomlabs/generator-builder" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/infyomlabs/laravel-generator" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/laravelcollective/html" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/cache" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/dbal" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/event-manager" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/doctrine/deprecations" />
-      <excludeFolder url="file://$MODULE_DIR$/projetLaravel/vendor/laravel/ui" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

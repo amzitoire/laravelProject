@@ -3,7 +3,11 @@
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/projetLaravel/vendor/composer" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/laracasts/flash" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/infyomlabs/adminlte-templates" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/infyomlabs/generator-builder" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/psr/simple-cache" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/infyomlabs/laravel-generator" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/psr/http-factory" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/psr/container" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/psr/http-client" />
@@ -43,6 +47,7 @@
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpspec/prophecy" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpunit/php-code-coverage" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpunit/phpunit" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/laravel/ui" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpunit/php-text-template" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpunit/php-invoker" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpunit/php-file-iterator" />
@@ -68,6 +73,7 @@
       <path value="$PROJECT_DIR$/projetLaravel/vendor/symfony/var-dumper" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/symfony/http-foundation" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/symfony/polyfill-php81" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/laravelcollective/html" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/symfony/http-kernel" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/symfony/translation-contracts" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/symfony/service-contracts" />
@@ -85,9 +91,13 @@
       <path value="$PROJECT_DIR$/projetLaravel/vendor/ralouphie/getallheaders" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/type" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/diff" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/cache" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/lines-of-code" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/dbal" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/object-enumerator" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/event-manager" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/comparator" />
+      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/deprecations" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/code-unit" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/exporter" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/sebastian/cli-parser" />
@@ -112,16 +122,6 @@
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpdocumentor/type-resolver" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/phpdocumentor/reflection-common" />
       <path value="$PROJECT_DIR$/projetLaravel/vendor/graham-campbell/result-type" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/laracasts/flash" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/infyomlabs/adminlte-templates" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/infyomlabs/generator-builder" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/infyomlabs/laravel-generator" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/laravelcollective/html" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/event-manager" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/doctrine/deprecations" />
-      <path value="$PROJECT_DIR$/projetLaravel/vendor/laravel/ui" />
     </include_path>
   </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="7.3" />
