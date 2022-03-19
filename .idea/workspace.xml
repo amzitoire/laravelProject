@@ -4,28 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee00c352-2598-4582-8718-329cf2137fee" name="Changes" comment=".idea">
-      <change afterPath="$PROJECT_DIR$/projetLaravel/app/Mail/MyTestMail.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetLaravel/resources/views/emails/myTestMail.blade.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/projetLaravel/resources/views/my_users/edit.blade.php" afterDir="false" />
+    <list default="true" id="ee00c352-2598-4582-8718-329cf2137fee" name="Changes" comment="laravel  v1 final commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/.env.example" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/app/Http/Controllers/HomeController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/app/Http/Controllers/HomeController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/app/Http/Controllers/MyUserController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/app/Http/Controllers/MyUserController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/app/Http/Controllers/adminController.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/app/Http/Controllers/adminController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/admin/home.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/admin/home.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/auth/login.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/auth/login.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/auth/register.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/auth/register.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/_footer.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/_footer.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/_nav.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/_nav.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/menu.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/menu.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/sidebar.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/layouts/sidebar.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/users/change_password.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/users/change_password.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/users/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/users/edit.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/resources/views/users/profil.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/resources/views/users/profil.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/routes/api.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projetLaravel/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/projetLaravel/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +186,8 @@
       <option name="presentableId" value="Default" />
       <updated>1647563506775</updated>
       <workItem from="1647563508749" duration="8668000" />
-      <workItem from="1647617712759" duration="12456000" />
+      <workItem from="1647617712759" duration="12858000" />
+      <workItem from="1647645696622" duration="1818000" />
     </task>
     <task id="LOCAL-00001" summary=".idea">
       <created>1647563612584</created>
@@ -221,7 +203,14 @@
       <option name="project" value="LOCAL" />
       <updated>1647563682505</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="laravel  v1 final commit">
+      <created>1647634613981</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1647634613981</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -241,6 +230,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value=".idea" />
-    <option name="LAST_COMMIT_MESSAGE" value=".idea" />
+    <MESSAGE value="laravel  v1 final commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="laravel  v1 final commit" />
   </component>
 </project>

@@ -18,10 +18,10 @@
           integrity="sha512-mxrUXSjrxl8vm5GwafxcqTrEwO1/oBNU25l20GODsysHReZo4uhVISzAKzaABH6/tTfAxZrY2FprmeAP5UZY8A=="
           crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- iCheck -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"
-          integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="
-          crossorigin="anonymous"/>
+{{--    <!-- iCheck -->--}}
+{{--    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/icheck-bootstrap/3.0.1/icheck-bootstrap.min.css"--}}
+{{--          integrity="sha512-8vq2g5nHE062j3xor4XxPeZiPjmRDh6wlufQlfC6pdQ/9urJkU07NM0tEREeymP++NczacJ/Q59ul+/K2eYvcg=="--}}
+{{--          crossorigin="anonymous"/>--}}
 
     <link rel="stylesheet" href="../../static/css/form.css">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss/dist/utilities.min.css" rel="stylesheet">
@@ -104,7 +104,6 @@
                     <input type="checkbox"
                            name="is_fromEsmt"
                            value="1"
-                           class=" form-check-input @error('is_fromEsmt') is-invalid @enderror my-3"
                            >
                     <label for="@lang('auth.is_fromEsmt')" class="form-check-label"> Etudiant de l'ESMT</label>
                     </div>
@@ -126,9 +125,8 @@
                         <input type="checkbox"
                            name="is_newsletter"
                            value="1"
-                           class="form-check-input @error('is_newsletterl') is-invalid @enderror"
                            >
-                    <label for="@lang('auth.is_newsletter')" class="form-check-label">S'Abonner a la newsletter</label>
+                    <label for="@lang('auth.is_newsletter')" class="form-check-label">S'abonner a la newsletter</label>
                     </div>
                     <div class="input-group-append">
                         <div class="input-group-text">
@@ -143,9 +141,9 @@
                 <div class="row">
                     <div class="col-8">
                         <div class="icheck-primary">
-                            <input type="checkbox" id="agreeTerms" name="terms" value="agree">
                             <label for="agreeTerms">
-                                accepter les termes d'inscription <br>
+                                <input type="checkbox" id="agreeTerms" name="terms" value="agree">
+                                Accepter les termes d'inscription <br>
                                 <a href="{{route('condition')}}" class="btn btn-link">Conditions utilisation</a>
                             </label>
                         </div>
